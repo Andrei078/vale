@@ -9,7 +9,7 @@ canvas.height = window.innerHeight
 SETARE CUVANT FINAL
 ------------------------- */
 
-const finalWord = "PENTRU TINE 🌹"
+const finalWord = ""❤ PRIMĂVARĂ FRUMOASĂ❤"
 
 
 /* -------------------------
@@ -198,3 +198,4 @@ animate()
 
 
 setTimeout(captureLetter,1000)
+
