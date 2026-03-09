@@ -9,7 +9,7 @@ canvas.height = window.innerHeight
 SETARE CUVANT FINAL
 ------------------------- */
 
-const finalWord = "LA MULTI ANI"
+const finalWord = "PENTRU TINE 🌹"
 
 
 /* -------------------------
@@ -195,5 +195,6 @@ requestAnimationFrame(animate)
 }
 
 animate()
+
 
 setTimeout(captureLetter,1000)
