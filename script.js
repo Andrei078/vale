@@ -9,8 +9,7 @@ canvas.height = window.innerHeight
 SETARE CUVANT FINAL
 ------------------------- */
 
-const finalWord = "❤PRIMĂVARĂ 
-  FRUMOASĂ❤"
+const finalWord = "❤PRIMĂVARĂ FRUMOASĂ❤"
 
 
 /* -------------------------
@@ -198,5 +197,6 @@ requestAnimationFrame(animate)
 animate()
 
 setTimeout(captureLetter,1000)
+
 
 
