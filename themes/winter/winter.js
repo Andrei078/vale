@@ -4,12 +4,13 @@ const ctx = canvas.getContext("2d")
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
+
 /* -------------------------
 TEXT
 ------------------------- */
 
 const message =
-"Welcome\nWinter Theme"
+"❤SPOR LA\nSIMULARE❤"
 
 const lines = message.split("\n")
 
@@ -96,5 +97,11 @@ textY += Math.sin(Date.now()*0.001)*0.2
 requestAnimationFrame(draw)
 
 }
+window.addEventListener("resize",()=>{
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+})
 
 draw()

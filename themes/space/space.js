@@ -9,7 +9,7 @@ TEXT
 ------------------------- */
 
 const message =
-"Welcome\nTo Space"
+"❤SPOR LA\nSIMULARE❤"
 
 const lines = message.split("\n")
 
@@ -19,7 +19,6 @@ let textY = canvas.height/2
 /* -------------------------
 STARS
 ------------------------- */
-
 let stars = []
 
 for(let i=0;i<200;i++){
@@ -32,7 +31,8 @@ size:Math.random()*2,
 blink:Math.random()
 
 })
-
+let brightness = Math.sin(Date.now()*0.002+stars.offset)*0.5 + 0.5
+ctx.globalAlpha=brightness
 }
 
 
@@ -184,5 +184,11 @@ textY+=Math.sin(Date.now()*0.001)*0.2
 requestAnimationFrame(draw)
 
 }
+window.addEventListener("resize",()=>{
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+})
 
 draw()

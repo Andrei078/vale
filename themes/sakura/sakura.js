@@ -4,22 +4,33 @@ const ctx = canvas.getContext("2d")
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-/* -------------------------
-TEXT PLUTITOR
-------------------------- */
+
+/* IMAGINI PETALE */
+
+const petalImages = []
+
+const img1 = new Image()
+img1.src = "assets/images/sakura/sakura1.png"
+
+const img2 = new Image()
+img2.src = "assets/images/sakura/sakura2.png"
+
+petalImages.push(img1,img2)
+
+
+/* TEXT */
 
 const message =
-"❤SPOR LA\nSIMULARE❤"
+"Welcome\nTo Sakura"
 
 const lines = message.split("\n")
 
 let textY = canvas.height/2
 
-/* -------------------------
-PETALS
-------------------------- */
 
-let petals = []
+/* PETALS */
+
+let petals=[]
 
 for(let i=0;i<40;i++){
 
@@ -28,45 +39,58 @@ petals.push({
 x:Math.random()*canvas.width,
 y:Math.random()*canvas.height,
 
-speed:1+Math.random()*2,
+speed:0.5+Math.random()*1,
 
-size:4+Math.random()*4,
+size:20+Math.random()*20,
 
-sway:Math.random()*0.02
+rotation:Math.random()*360,
+
+rotSpeed:(Math.random()-0.5)*0.02,
+
+drift:(Math.random()-0.5)*0.5,
+
+img:petalImages[Math.floor(Math.random()*petalImages.length)]
 
 })
 
 }
 
-/* -------------------------
-DRAW
-------------------------- */
+
+/* DRAW */
 
 function draw(){
 
 ctx.clearRect(0,0,canvas.width,canvas.height)
 
+
 /* PETALS */
 
-ctx.fillStyle="#ffc0cb"
+petals.forEach(p=>{
 
-for(let p of petals){
+ctx.save()
 
-ctx.beginPath()
-ctx.arc(p.x,p.y,p.size,0,Math.PI*2)
-ctx.fill()
+ctx.translate(p.x,p.y)
+
+ctx.rotate(p.rotation)
+
+ctx.drawImage(p.img,-p.size/2,-p.size/2,p.size,p.size)
+
+ctx.restore()
 
 p.y+=p.speed
-p.x+=Math.sin(p.y*p.sway)
+p.x+=p.drift
+p.rotation+=p.rotSpeed
 
-if(p.y>canvas.height){
 
-p.y=0
+if(p.y>canvas.height+20){
+
+p.y=-20
 p.x=Math.random()*canvas.width
 
 }
 
-}
+})
+
 
 /* TEXT */
 
@@ -77,22 +101,27 @@ ctx.fillStyle="#ff6fa5"
 ctx.shadowColor="#ff6fa5"
 ctx.shadowBlur=15
 
-ctx.font="60px serif"
+ctx.font="70px serif"
 
-let startY = textY - (lines.length*60)/2
+let startY = textY - (lines.length*70)/2
 
 for(let i=0;i<lines.length;i++){
 
-ctx.fillText(lines[i],canvas.width/2,startY+i*70)
+ctx.fillText(lines[i],canvas.width/2,startY+i*80)
 
 }
 
-/* plutire text */
-
 textY += Math.sin(Date.now()*0.001)*0.2
+
 
 requestAnimationFrame(draw)
 
 }
+window.addEventListener("resize",()=>{
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+})
 
 draw()

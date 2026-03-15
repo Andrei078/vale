@@ -8,7 +8,7 @@ canvas.height = window.innerHeight
 SETARE TEXT FINAL
 ------------------------- */
 
-const finalWord = "❤ spot la\nsimulari"  // Text pe mai multe rânduri
+const finalWord = "❤ SPOR LA\nSIMULARE❤"  // Text pe mai multe rânduri
 
 /* -------------------------
 CONFIG MATRIX
@@ -166,3 +166,9 @@ function animate(){
 animate()
 setTimeout(captureLetter,1000)
 
+window.addEventListener("resize",()=>{
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
+
+})
