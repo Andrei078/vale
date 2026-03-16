@@ -21,7 +21,7 @@ petalImages.push(img1,img2)
 /* TEXT */
 
 const message =
-"❤SPOR LA\nSIMULARE❤"
+"Welcome\nTo Sakura"
 
 const lines = message.split("\n")
 
